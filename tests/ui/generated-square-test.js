@@ -3,14 +3,16 @@ describe('generated-square-9-page', () => {
 
     beforeAll(async () => {
         page = await __BROWSER__.newPage()
-        page = global.pages[0]
+        //page = global.pages[0]
         await page.goto('file:///Users/davidm/Projects/gannsquares.com/index.html')
         await page.waitForSelector('#submit')
         await page.click('#submit')
-        let popup = global.pages[global.pages.length - 1]
+        const popup = await browser.waitForTarget(target => target.ur() === link.textContent())
+        //let popup = global.pages[global.pages.length - 1]
         await popup.waitForNavigation({
             waitUntil: 'networkidle0',
         });
+
     }, 5000)
 
     afterAll(async () => {
