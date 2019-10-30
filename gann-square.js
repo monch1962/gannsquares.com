@@ -72,7 +72,7 @@ function gannsquare4() {
       g[i][j] = 0;
     }
   }
-  g[x+1][y] = count;
+  g[x + 1][y] = count;
   count += increment;
   g[x][y] = count;
   count += increment;
@@ -85,7 +85,7 @@ function gannsquare4() {
   var current_level = 1;
 
   while (current_level < level + 1 && x > 0) {
-  //while (current_level < 3 && x > 0) {
+    //while (current_level < 3 && x > 0) {
     range = current_level * 2;
     count += increment;
 
@@ -96,28 +96,28 @@ function gannsquare4() {
 
     // Run up the right edge
     //for (var i = 1; i < current_level * 2; i++) {
-    for (var i=1; i < current_level+1; i++) {
+    for (var i = 1; i < current_level + 1; i++) {
       y--;
       count += increment;
       g[x][y] = count;
     };
 
     // Run left along the top
-    for (var i = 0; i < range+1; i++) {
+    for (var i = 0; i < range + 1; i++) {
       x--;
       count += increment;
       g[x][y] = count;
     };
 
     // Run down the left edge
-    for (var i = 0; i < range+1; i++) {
+    for (var i = 0; i < range + 1; i++) {
       y++;
       count += increment;
       g[x][y] = count;
     };
 
     // Run right along the bottom
-    for (var i = 0; i < range+1; i++) {
+    for (var i = 0; i < range + 1; i++) {
       x++;
       count += increment;
       g[x][y] = count;
@@ -204,7 +204,7 @@ function plotsquare(g) {
           text = "#ffffff";
         }
       } else {
-        if ((Math.abs(i-center) < 0.9) || (Math.abs(j-center) < 0.9)) {
+        if ((Math.abs(i - center) < 0.9) || (Math.abs(j - center) < 0.9)) {
           bgcolor = "#ffb6c1";
           text = "#ffffff";
         }
@@ -251,7 +251,7 @@ function plotsquare(g) {
         //  bgcolor = "#ffff00";
         //  text = "#000000";
         //}
-        if ((j < level) && i < level && (i-level)*2==j) {
+        if ((j < level) && i < level && (i - level) * 2 == j) {
           bgcolor = "#ffff00";
           text = "#000000"
         }
@@ -266,7 +266,7 @@ function plotsquare(g) {
         text = "#000000";
       }
 
-      d.write('<td bgcolor="' + bgcolor + '" color="' + text + '"><font face=arial size=0><div class="content"><center>' + nice_format(g[j][i]) + '</center></div></td>');
+      d.write('<td bgcolor="' + bgcolor + '" color="' + text + '"><font face=arial size=0><div class="content" id="' + nice_format(g[j][i]) + '"><center>' + nice_format(g[j][i]) + '</center></div></td>');
     }
     d.write("</tr>\n");
   }
